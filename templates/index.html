@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<meta charset="UTF-8">
+		<title>Rumor detection</title>
+         <link rel="stylesheet" href="https://static.wixstatic.com/media/cd6a42_b5ce44c99e274a629d623a9121fda004~mv2.png/v1/fill/w_140,h_138,al_c,q_85,usm_0.66_1.00_0.01/TF%20icon%202.webp ">
+
+
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+	</head>
+	<body>
+		<!-- header start........... -->
+		<header>
+			<div class="container">
+				<div class="main">
+					<div class="logo">
+						<a href="http://127.0.0.1:5000/"><h2>Predict</h2></a>
+					</div>
+					<nav class="menu">
+						<ul>
+							<li><a href="http://127.0.0.1:5000/">Home</a></li>
+							<li><a href="http://127.0.0.1:5000/link">Link</a></li>
+							<li><a href="http://127.0.0.1:5000/about">About Us</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		
+		<div class="container">
+			<div class="part">
+				<div class="fast_part">
+					<h1>Fake News Detector</h1>
+				</div>
+				<div class="second_part">
+					<form action="{{ url_for('predicted')}}" method="POST">
+						<textarea  name="message" rows="6" cols="50" required="required" style="font-size: 18pt" placeholder="Please write or copy your text here ....."></textarea>
+						<br> </br>
+						<button type="submit" class="btn btn-primary btn-block btn-large xxx">DETECTOR</button>
+						<div class="results">
+							{% if prediction == ['FAKE']%}
+								<h2 style="color:red;">likely to be fake⚠️News📰 </h2>
+								{% elif prediction == ['REAL']%}
+								<h2 style="color:green;"><b>likely to be Real News📰</b></h2>
+							{% endif %}
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>

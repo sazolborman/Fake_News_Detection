@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+    <!--From https://codepen.io/frytyler/pen/EGdtg-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Rumor detection</title>
+         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        
+    </head>
+    <body>
+        <!-- header start........... -->
+        <header>
+            <div class="container">
+                <div class="main">
+                    <div class="logo">
+                        <a href="http://127.0.0.1:5000/"><h2>Predict</h2></a>
+                    </div>
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="http://127.0.0.1:5000/">Home</a></li>
+                            <li><a href="http://127.0.0.1:5000/link">Link</a></li>
+                            <li><a href="http://127.0.0.1:5000/about">About Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Input For Receiving Query to our ML -->
+        <div class="container">
+            <div class="part">
+                <div class="fast_part">
+                    <h1>Fake News Detector</h1>
+                </div>
+                <div class="second_part">
+                    <form action="{{ url_for('predict')}}"method="post">
+                        <input type="text" name="news" placeholder="Enter the news url" required="required" /><br>
+                        <button type="submit" class="btn btn-primary btn-block btn-large" >Detector</button>
+                    </form>
+                    <br>
+                    <br>
+                    {{ prediction_text }}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

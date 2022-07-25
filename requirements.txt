@@ -1,0 +1,10 @@
+flask-cors
+numpy~=1.21.2
+newspaper3k
+sklearn~=0.0
+pandas~=1.3.3
+flask~=2.0.2
+nltk~=3.6.5
+gunicorn
+Flask~=2.0.1
+scikit-learn~=1.0
